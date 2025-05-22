@@ -1,22 +1,22 @@
-import { useSetRecoilState } from "recoil"
-import { IEvento } from "../../interfaces/IEvento"
-import { listaDeEventosState } from "../atom"
-import { generateId } from "../../util"
+import { useSetRecoilState } from 'recoil';
+import { IEvento } from '../../interfaces/IEvento';
+import { listaDeEventosState } from '../atom';
+import { generateId } from '../../util';
 
 const useAdicionarEvento = () => {
-    const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState)
+  const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState);
 
-    return (evento: IEvento) => {
-        const hoje = new Date()
-        const eventoEstaNoPassado = evento.inicio < hoje
+  return (evento: IEvento) => {
+    const hoje = new Date();
+    const eventoEstaNoPassado = evento.inicio < hoje;
 
-        if (eventoEstaNoPassado) {
-            throw new Error('Não é possível adicionar eventos no passado')
-        }
-
-        evento.id = generateId()
-        setListaDeEventos(listaAntiga => [...listaAntiga, evento])
+    if (eventoEstaNoPassado) {
+      throw new Error('Não é possível adicionar eventos no passado');
     }
-}
 
-export default useAdicionarEvento
+    evento.id = generateId();
+    setListaDeEventos((listaAntiga) => [...listaAntiga, evento]);
+  };
+};
+
+export default useAdicionarEvento;
