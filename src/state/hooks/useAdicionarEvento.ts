@@ -8,7 +8,6 @@ const useAdicionarEvento = () => {
 
     return (evento: IEvento) => {
         const hoje = new Date()
-        hoje.setHours(0, 0, 0, 0)
         const eventoEstaNoPassado = evento.inicio < hoje
 
         if (eventoEstaNoPassado) {
