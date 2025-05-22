@@ -1,4 +1,3 @@
-
 .Formulario {
   display: flex;
   align-items: stretch;
@@ -9,11 +8,10 @@
   box-sizing: border-box;
   .inputContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr; 
-    gap: 1rem; 
-    grid-template-areas: 
-      ". ."; 
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    grid-template-areas: '. .';
   }
   .input {
     margin: 8px 0;

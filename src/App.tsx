@@ -4,15 +4,14 @@ import Card from './components/Card';
 import Formulario from './components/Formulario';
 import Calendario from './components/Calendario';
 import ListaDeEventos from './components/ListaDeEventos';
-import { RecoilRoot } from 'recoil'
+import { RecoilRoot } from 'recoil';
 
 function App() {
-
-  const [filtro, setFiltro] = useState<Date | null>()
+  const [filtro, setFiltro] = useState<Date | null>();
 
   const aplicarFiltro = (data: Date | null) => {
-    setFiltro(data)
-  }
+    setFiltro(data);
+  };
 
   // const filtrados = !filtro
   //   ? eventos
@@ -29,9 +28,7 @@ function App() {
           </Card>
           <hr />
           <Card>
-            <ListaDeEventos
-              aoFiltroAplicado={aplicarFiltro}
-            />
+            <ListaDeEventos aoFiltroAplicado={aplicarFiltro} />
           </Card>
         </div>
         <div className={style.Coluna}>

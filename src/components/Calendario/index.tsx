@@ -1,54 +1,55 @@
-import React from 'react'
+import React from 'react';
 import style from './Calendario.module.scss';
-import ptBR from './localizacao/ptBR.json'
-import Kalend, { CalendarEvent, CalendarView, OnEventDragFinish } from 'kalend'
+import ptBR from './localizacao/ptBR.json';
+import Kalend, { CalendarEvent, CalendarView, OnEventDragFinish } from 'kalend';
 import 'kalend/dist/styles/index.css';
 import useAtualizarEvento from '../../state/hooks/useAtualizarEvento';
 import useListaDeEventos from '../../state/hooks/useListaDeEventos';
 
 interface IKalendEvento {
-  id?: number
-  startAt: string
-  endAt: string
-  summary: string
-  color: string
+  id?: number;
+  startAt: string;
+  endAt: string;
+  summary: string;
+  color: string;
 }
 
 const Calendario: React.FC = () => {
-
   const eventosKalend = new Map<string, IKalendEvento[]>();
   const eventos = useListaDeEventos();
-  const atualizarEvento = useAtualizarEvento()
+  const atualizarEvento = useAtualizarEvento();
 
-  eventos.forEach(evento => {
-    const chave = evento.inicio.toISOString().slice(0, 10)
+  eventos.forEach((evento) => {
+    const chave = evento.inicio.toISOString().slice(0, 10);
     if (!eventosKalend.has(chave)) {
-      eventosKalend.set(chave, [])
+      eventosKalend.set(chave, []);
     }
     eventosKalend.get(chave)?.push({
       id: evento.id,
       startAt: evento.inicio.toISOString(),
       endAt: evento.fim.toISOString(),
       summary: evento.descricao,
-      color: 'blue'
-    })
-  })
+      color: 'blue',
+    });
+  });
 
   const onEventDragFinish: OnEventDragFinish = (
     kalendEventoInalterado: CalendarEvent,
-    kalendEventoAtualizado: CalendarEvent,
+    kalendEventoAtualizado: CalendarEvent
   ) => {
-    const evento = eventos.find((evento) => evento.descricao === kalendEventoInalterado.summary)
+    const evento = eventos.find(
+      (evento) => evento.descricao === kalendEventoInalterado.summary
+    );
     if (evento) {
       const eventoAtualizado = {
         ...evento,
-      }
-      eventoAtualizado.inicio = new Date(kalendEventoAtualizado.startAt)
-      eventoAtualizado.fim = new Date(kalendEventoAtualizado.endAt)
+      };
+      eventoAtualizado.inicio = new Date(kalendEventoAtualizado.startAt);
+      eventoAtualizado.fim = new Date(kalendEventoAtualizado.endAt);
 
-      atualizarEvento(eventoAtualizado)
+      atualizarEvento(eventoAtualizado);
     }
-  }
+  };
 
   return (
     <div className={style.Container}>
@@ -66,6 +67,6 @@ const Calendario: React.FC = () => {
       />
     </div>
   );
-}
+};
 
-export default Calendario
+export default Calendario;
