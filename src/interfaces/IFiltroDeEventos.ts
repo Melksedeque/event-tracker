@@ -1,3 +1,3 @@
 export interface IFiltroDeEventos {
-  data?: Date;
+  data?: Date | null;
 }
