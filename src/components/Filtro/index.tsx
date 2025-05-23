@@ -11,11 +11,12 @@ const Filtro: React.FC = () => {
 
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
-    if (!data) {
-      aoFiltroAplicado(null);
-      return;
+    const filtro: IFiltroDeEventos = {};
+    if (data) {
+      filtro.data = new Date(data);
+    } else {
+      filtro.data = null;
     }
-    aoFiltroAplicado(new Date(data));
   };
 
   return (
