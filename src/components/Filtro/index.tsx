@@ -6,7 +6,8 @@ import { IFiltroDeEventos } from '../../interfaces/IFiltroDeEventos';
 
 const Filtro: React.FC = () => {
   const [data, setData] = useState('');
-  const setFiltroDeEvento = useSetRecoilState<IFiltroDeEventos>(filtroDeEventos);
+  const setFiltroDeEvento =
+    useSetRecoilState<IFiltroDeEventos>(filtroDeEventos);
 
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
