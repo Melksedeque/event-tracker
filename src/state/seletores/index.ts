@@ -20,3 +20,5 @@ const eventosFiltradosState = selector({
     return eventos;
   },
 });
+
+export default eventosFiltradosState;
