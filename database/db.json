@@ -1,1 +1,32 @@
-{}
+{
+  "eventos": [
+    {
+      "descricao": "Estudar React",
+      "inicio": "2025-05-22T09:00",
+      "fim": "2025-05-22T13:00",
+      "completo": false,
+      "id": 1642342747
+    },
+    {
+      "descricao": "Estudar Typescript",
+      "inicio": "2025-05-23T09:00",
+      "fim": "2025-05-23T13:00",
+      "completo": false,
+      "id": 1642342748
+    },
+    {
+      "descricao": "Estudar Padrões de Projeto",
+      "inicio": "2025-05-21T09:00",
+      "fim": "2025-05-21T13:00",
+      "completo": false,
+      "id": 1642342749
+    },
+    {
+      "descricao": "Estudar Recoil",
+      "inicio": "2025-05-26T09:00",
+      "fim": "2025-05-26T11:00",
+      "completo": false,
+      "id": 1642342750
+    }
+  ]
+}
