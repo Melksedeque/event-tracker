@@ -1,0 +1,14 @@
+import { useEffect } from 'react';
+import { useRecoilSnapshot } from 'recoil';
+
+export default function DebugObserver() {
+  const snapshot = useRecoilSnapshot();
+  useEffect(() => {
+    console.debug('Os seguintes átomos foram modificados:');
+    for (const node of snapshot.getNodes_UNSTABLE({ isModified: true })) {
+      console.debug(node.key, snapshot.getLoadable(node).valueOrThrow());
+    }
+  }, [snapshot]);
+
+  return null;
+}
