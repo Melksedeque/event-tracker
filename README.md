@@ -164,7 +164,7 @@ event-tracker/
 
 ## Projeto ao Vivo
 
-Para ver uma demonstração ao vivo do projeto, visite: [Event Tracker - Kalend Alura Demo](#) _(link será adicionado quando disponível)_
+Para ver uma demonstração ao vivo do projeto, visite: [Event Tracker - Kalend Alura Demo](https://event-tracker-eight-pearl.vercel.app)
 
 ## Fluxo de Dados
 
