@@ -6,7 +6,7 @@ export default function DebugObserver() {
   useEffect(() => {
     console.debug('Os seguintes átomos foram modificados:');
     for (const node of snapshot.getNodes_UNSTABLE({ isModified: true })) {
-      console.debug(node.key, snapshot.getLoadable(node).valueOrThrow());
+      console.debug(node.key, snapshot.getLoadable(node));
     }
   }, [snapshot]);
 
